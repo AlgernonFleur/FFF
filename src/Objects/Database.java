@@ -17,8 +17,6 @@ public class Database {
 	public static void main(String[] args) {
 		Database d = new Database();
 		d.readInDatabase();
-		
-
 	}
 	
 	public void readInDatabase() {
@@ -43,5 +41,9 @@ public class Database {
 	
 	public void setRestaurants(ArrayList<Restaurant> list) {
 		this.restaurants = list;
+	}
+	
+	public ArrayList<Restaurant> getRestaurants() {
+		return restaurants;
 	}
 }
