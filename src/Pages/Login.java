@@ -72,7 +72,7 @@ public class Login extends Page {
 					String password = pwField.getText();
 					
 					if(checkUser(username,password))
-						getCtrl().activate("Default");
+						getCtrl().activate("MainMenu");
 					else
 						showFailText(failText);
 				}
@@ -89,7 +89,7 @@ public class Login extends Page {
 				String password = pwField.getText();
 				
 				if(checkUser(username,password))
-					getCtrl().activate("Default");
+					getCtrl().activate("MainMenu");
 				else
 					showFailText(failText);
 			}

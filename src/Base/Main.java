@@ -2,6 +2,7 @@ package Base;
 
 import Pages.Default;
 import Pages.Login;
+import Pages.MainMenu;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
@@ -21,6 +22,7 @@ public class Main extends Application {
 		PageCtrl ctrl = new PageCtrl(scene);
 		
 		ctrl.addPage("Login",new Login(ctrl).getPane());
+		ctrl.addPage("MainMenu",new MainMenu(ctrl).getPane());
 		ctrl.addPage("Default",new Default(ctrl).getPane());
 		ctrl.activate("Login");
 		
