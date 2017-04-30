@@ -2,6 +2,7 @@ package Pages;
 
 import Base.Page;
 import Base.PageCtrl;
+import javafx.animation.FadeTransition;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;
@@ -13,9 +14,11 @@ import javafx.scene.control.TextField;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
+import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
+import javafx.util.Duration;
 
 public class Login extends Page {
 	public Login(PageCtrl ctrl) {
@@ -55,6 +58,10 @@ public class Login extends Page {
 		hbBtn.setAlignment(Pos.BOTTOM_RIGHT);
 		hbBtn.getChildren().add(btn);
 		pane.add(hbBtn, 1, 4);
+		
+		//login fail text
+		Text failText = new Text();
+		pane.add(failText,1,6);
 		//</editor-fold>
 		
 		EventHandler<KeyEvent> checkKey = new EventHandler<KeyEvent>() {
@@ -66,6 +73,8 @@ public class Login extends Page {
 					
 					if(checkUser(username,password))
 						getCtrl().activate("Default");
+					else
+						showFailText(failText);
 				}
 			}
 		};
@@ -81,6 +90,8 @@ public class Login extends Page {
 				
 				if(checkUser(username,password))
 					getCtrl().activate("Default");
+				else
+					showFailText(failText);
 			}
 		};
 		
@@ -92,5 +103,10 @@ public class Login extends Page {
 	public boolean checkUser(String username,String password){
 		if(username.equals("admin") && password.equals("null")) return true;
 		else return false;
+	}
+	
+	public void showFailText(Text text){
+		text.setFill(Color.FIREBRICK);
+		text.setText("Invalid credentials");
 	}
 }
