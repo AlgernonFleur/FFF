@@ -49,14 +49,4 @@ public class Restaurant {
 	public void addRating(int i) {
 		userRating.add(i);
 	}
-	
-	@Override
-	public String toString() {
-		return "Restaurant{" +
-				"name='" + name + '\'' +
-				", userRating=" + userRating +
-				", postcode=" + postcode +
-				", menu=" + menu +
-				'}';
-	}
 }
