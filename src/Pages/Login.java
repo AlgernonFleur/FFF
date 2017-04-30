@@ -108,5 +108,10 @@ public class Login extends Page {
 	public void showFailText(Text text){
 		text.setFill(Color.FIREBRICK);
 		text.setText("Invalid credentials");
+		
+		FadeTransition fade = new FadeTransition(Duration.seconds(1),text);
+		fade.setFromValue(1);
+		fade.setToValue(0);
+		fade.play();
 	}
 }
