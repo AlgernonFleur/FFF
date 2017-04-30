@@ -1,5 +1,6 @@
 package Base;
 
+import Pages.Default;
 import Pages.Login;
 import javafx.application.Application;
 import javafx.scene.Scene;
@@ -20,6 +21,7 @@ public class Main extends Application {
 		PageCtrl ctrl = new PageCtrl(scene);
 		
 		ctrl.addPage("Login",new Login(ctrl).getPane());
+		ctrl.addPage("Default",new Default(ctrl).getPane());
 		ctrl.activate("Login");
 		
 		primaryStage.setScene(scene);
