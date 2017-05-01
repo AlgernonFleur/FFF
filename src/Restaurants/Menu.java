@@ -1,4 +1,4 @@
-package Objects;
+package Restaurants;
 
 import java.util.ArrayList;
 
