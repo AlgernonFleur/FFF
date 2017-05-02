@@ -47,9 +47,8 @@ public class MainMenu extends Page{
 			resButt.setOnAction(new EventHandler<ActionEvent>() {
 				@Override
 				public void handle(ActionEvent event) {
-					ResPage resPage = new ResPage(getCtrl(),getWidth(),getHeight(),r);
-					getCtrl().addPage(name,resPage.getPane());
-					getCtrl().activate(name);
+					createResPage(r);
+					getCtrl().activate(r.getName());
 				}
 			});
 			gridPane.add(resButt,0,i);
@@ -99,5 +98,10 @@ public class MainMenu extends Page{
 		pane.setLeft(vBox);
 		
 		setPane(pane);
+	}
+	
+	private void createResPage(Restaurant r){
+		ResPage resPage = new ResPage(getCtrl(),getWidth(),getHeight(),r);
+		getCtrl().addPage(r.getName(),resPage.getPane());
 	}
 }
