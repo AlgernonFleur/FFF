@@ -13,8 +13,9 @@ import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 
 public class Default extends Page {
-	public Default(PageCtrl ctrl) {
-		super(ctrl);
+	public Default(PageCtrl ctrl, int width, int height) {
+		super(ctrl, width, height);
+		setup();
 	}
 	
 	@Override

@@ -2,8 +2,8 @@ package Pages;
 
 import Base.Page;
 import Base.PageCtrl;
-import Objects.Database;
-import Objects.Restaurant;
+import Restaurants.Database;
+import Restaurants.Restaurant;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;
@@ -19,8 +19,10 @@ import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 
 public class MainMenu extends Page{
-	public MainMenu(PageCtrl ctrl) {
-		super(ctrl);
+	
+	public MainMenu(PageCtrl ctrl, int width, int height) {
+		super(ctrl, width, height);
+		setup();
 	}
 	
 	@Override
@@ -31,18 +33,31 @@ public class MainMenu extends Page{
 		BorderPane pane = new BorderPane();
 		
 		GridPane gridPane = new GridPane();
+		gridPane.setGridLinesVisible(true);
 		gridPane.setPadding(new Insets(5));
 		gridPane.setHgap(5);
 		gridPane.setVgap(5);
 		int i = 0;
 		for(Restaurant r: d.getRestaurants()){
-			Text resName = new Text(r.getName());
-			resName.setFont(Font.font("Arial",15));
-			gridPane.add(resName,0,i);
+			String name = r.getName().replace("_"," ");
+			Button resButt = new Button(name);
+			resButt.setMinWidth(200);
+			resButt.setAlignment(Pos.CENTER_LEFT);
+			resButt.setFont(Font.font("Arial",15));
+			resButt.setOnAction(new EventHandler<ActionEvent>() {
+				@Override
+				public void handle(ActionEvent event) {
+					ResPage resPage = new ResPage(getCtrl(),getWidth(),getHeight(),r);
+					getCtrl().addPage(name,resPage.getPane());
+					getCtrl().activate(name);
+				}
+			});
+			gridPane.add(resButt,0,i);
 			
 			Text resCode = new Text(Integer.toString(r.getPostcode()));
-			resName.setFont(Font.font("Arial",15));
+			resCode.setFont(Font.font("Arial",20));
 			gridPane.add(resCode,1,i);
+			
 			i++;
 		}
 		ScrollPane scrollPane = new ScrollPane(gridPane);

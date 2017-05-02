@@ -25,4 +25,8 @@ public class PageCtrl {
 	public void activate(String name){
 		scene.setRoot(pageMap.get(name));
 	}
+	
+	public Pane getPage(String name){
+		return pageMap.get(name);
+	}
 }

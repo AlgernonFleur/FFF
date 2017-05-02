@@ -5,10 +5,12 @@ import javafx.scene.layout.Pane;
 public abstract class Page{
 	private PageCtrl ctrl;
 	private Pane pane;
+	private int width,height;
 	
-	public Page(PageCtrl ctrl) {
+	public Page(PageCtrl ctrl,int width,int height) {
 		this.ctrl = ctrl;
-		setup();
+		this.width = width;
+		this.height = height;
 	}
 	
 	public abstract void setup();
@@ -23,5 +25,13 @@ public abstract class Page{
 	
 	public Pane getPane() {
 		return pane;
+	}
+	
+	public int getWidth() {
+		return width;
+	}
+	
+	public int getHeight() {
+		return height;
 	}
 }

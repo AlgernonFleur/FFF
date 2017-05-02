@@ -21,8 +21,10 @@ import javafx.scene.text.Text;
 import javafx.util.Duration;
 
 public class Login extends Page {
-	public Login(PageCtrl ctrl) {
-		super(ctrl);
+	
+	public Login(PageCtrl ctrl, int width, int height) {
+		super(ctrl, width, height);
+		setup();
 	}
 	
 	@Override
